@@ -13,7 +13,7 @@
 
     <!-- Open New Button For Mobile  -->
     <div 
-    class="add_new_mobile_only">
+    class="add_new_mobile_only d-md-none">
         <button class="btn btn-outline-primary gap-3" type="submit" data-bs-toggle="modal" data-bs-target="#open_task_modal">
             <i class="fa-solid fa-plus mr-4"></i>
             check
@@ -71,7 +71,7 @@
     </div>
 
     <!-- Open task Modal  -->
-    <div class="modal fade" id="open_task_modal" tabindex="-1" aria-labelledby="open_task_modal_Label" aria-hidden="true">
+    <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="open_task_modal_Label" aria-hidden="true">
       <div class="modal-dialog modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -79,7 +79,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body task_modal_body">
-            ...
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

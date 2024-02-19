@@ -56,7 +56,7 @@ const taskModal= document.querySelector(".task_modal_body");
 
 //template for card on screen
 const htmlTaskContent = ({id, title, description, type, url})=>`
-    <div class="col-md-4 col-lg-4 mt-3" id= ${id}>
+    <div class="col-md-4 col-lg-4 mt-3" id= ${id} key=${id}>
         <div class="card shadow task_card">
             <div class="card-header d-flex justify-content-end task_card_header">
                 <button type="button" class="btn btn-outline-primary" name="${id}">
@@ -74,9 +74,43 @@ const htmlTaskContent = ({id, title, description, type, url})=>`
                     `
                 }
                 <h4 class="card-title task_card_title">${title}</h4>
-                <p class="description trim-3-lines">${description}</p>
+                <p class="description trim-3-lines text-muted">${description}</p>
+                <div class="tags text-white d-flex flex-wrap">
+                    <span> class="badge bg-primary m-1" ${type}</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-otuline-primary float-right data-bs-toggle="modal" data-bs-target="#showTask">Open Task</button>
             </div>
         </div>
     </div>
 `
 ;
+
+//Open modal body onclick
+
+const htmlModalContent = ({id, title, description, type, url})=>{
+    const date = new Date(parseInt(id));
+    return `
+    <div id=${id}>
+        ${
+            url &&
+            `
+                <img width='100%' src=${url} alt="card image" class="img-fluid place_holder_imange" />
+            `
+        }
+        <stong class="text-mutes text-sm"> Created on: ${date.toDateString()}</stong>
+        <h2 class="my-3">${title}</h2>
+        <p class="text-muted">${description}</p>
+    </div>
+    `
+}
+
+
+const updateLocalStorage = ()=>{
+    localStorage.setItem(
+        JSON.stringify({
+            tasks: state.taskList,
+        })
+    )
+}
